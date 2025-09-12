@@ -373,6 +373,9 @@ async def update_world(
 async def chat_document_list(
     chat_id: str, user_jwt: Annotated[str | None, Cookie()] = None
 ):
+    log_info(
+        f"Listing documents for chat_id: {chat_id}", func_name="chat_document_list"
+    )
     return await wrap(chat_id, user_jwt, chat_document_list_success)
 
 
